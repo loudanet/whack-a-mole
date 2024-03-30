@@ -33,6 +33,8 @@ function App() {
         <button onClick={() => dispatch(zero())}>
           ZERO!
         </button>
+      </div>
+      <div>
         <Mole/>
       </div>
     </>

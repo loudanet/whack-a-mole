@@ -1,7 +1,15 @@
-.shown {
-    display: inline-block;
+div {
+    transition-duration: 200ms;
 }
 
-.hidden {
-    display: none;
+.left {
+    transform: translate(10%);
+}
+
+.right {
+    transform: translate(40%);
+}
+
+.centre {
+    transform: translate(70%);
 }
