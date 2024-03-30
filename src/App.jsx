@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { increment, decrement, zero, time } from "./score.js"
+import Mole from "./mole.jsx";
 
 function App() {
   let currentScore = useSelector(state => state.count);
@@ -32,6 +33,7 @@ function App() {
         <button onClick={() => dispatch(zero())}>
           ZERO!
         </button>
+        <Mole/>
       </div>
     </>
   )
