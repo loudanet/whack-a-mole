@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./mole.css";
 
-export default function() {
+export default function(props) {
     let [state, setState] = useState("middle");
 
     useEffect(()=> {
@@ -14,13 +14,13 @@ export default function() {
             } else {
                 setState("centre");
             }
-        }, 500)
+        }, 1000)
 
         return () => clearInterval(intervalId)
     }, [])
 
     const mole = (
-    <div className={state}>
+    <div className={state} onClick={props.onClick}>
         <p>    /\/\ </p>
         <p>( oo )</p>
         <p>\\/ </p>

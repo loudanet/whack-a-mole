@@ -24,18 +24,12 @@ function App() {
         <p>
           Count is {currentScore} and time left is {remainingTime}
         </p>
-        <button onClick={() => dispatch(increment())}>
-          UP!
-        </button>
-        <button onClick={() => dispatch(decrement())}>
-          DOWN!
-        </button>
         <button onClick={() => dispatch(zero())}>
           ZERO!
         </button>
       </div>
       <div>
-        <Mole/>
+        <Mole onClick={() => dispatch(increment())} />
       </div>
     </>
   )
