@@ -1,4 +1,5 @@
-div {
+#mole {
+    color: brown;
     transition-duration: 200ms;
 }
 

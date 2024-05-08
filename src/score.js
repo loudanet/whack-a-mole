@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { createContext } from "react";
 
 const initialState = {
     count: 0,
@@ -62,3 +63,5 @@ export function time() {
         type: "time"
     }
 }
+
+export const TimeContext = createContext(false);

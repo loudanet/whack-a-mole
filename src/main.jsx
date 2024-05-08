@@ -7,7 +7,7 @@ import score from "./score.js"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={score}>
-      <App store={score} />
+      <App />
     </Provider>
   </React.StrictMode>,
 )

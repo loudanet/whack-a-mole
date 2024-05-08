@@ -1,16 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { increment, decrement, zero, time } from "./score.js"
+import { increment, decrement, zero, time, TimeContext } from "./score.js"
 import Mole from "./mole.jsx";
+import "./styles.css";
 
 function App() {
   let currentScore = useSelector(state => state.count);
   let remainingTime = useSelector(state => state.time);
-  let active = useSelector(state => state.time > 0);
+  let [active, setActive] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const intervalId = setInterval(function() {
+      if (remainingTime <= 0) {
+        setActive(false);
+      }
       if (active) {
         dispatch(time());
       }
@@ -19,19 +23,27 @@ function App() {
   }, [active])
 
   return (
-    <>
+    <TimeContext.Provider value={active}>
+      <h1>
+        WHACK-A-MOLE
+      </h1>
       <div>
         <p>
-          Count is {currentScore} and time left is {remainingTime}
+          Score is {currentScore} and time left is {remainingTime}
         </p>
-        <button onClick={() => dispatch(zero())}>
-          ZERO!
-        </button>
+        {active ? 
+                  <button onClick={() => setActive(false)}>
+                  PAUSE!
+                  </button> : 
+                  <button onClick={() => setActive(true)}>
+                  START!
+                  </button>
+        }
       </div>
       <div>
         <Mole onClick={() => dispatch(increment())} />
       </div>
-    </>
+    </TimeContext.Provider>
   )
 }
 
