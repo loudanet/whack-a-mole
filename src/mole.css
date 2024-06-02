@@ -7,10 +7,10 @@
     transform: translate(10%);
 }
 
-.right {
+.centre {
     transform: translate(40%);
 }
 
-.centre {
+.right {
     transform: translate(70%);
 }

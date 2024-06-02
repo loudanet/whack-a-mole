@@ -3,7 +3,7 @@ import { TimeContext } from "./score";
 import "./mole.css";
 
 export default function(props) {
-    let [state, setState] = useState("middle");
+    let [state, setState] = useState("centre");
     let active = useContext(TimeContext);
 
     useEffect(()=> {

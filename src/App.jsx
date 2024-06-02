@@ -14,13 +14,15 @@ function App() {
     const intervalId = setInterval(function() {
       if (remainingTime <= 0) {
         setActive(false);
+        clearInterval(intervalId);
+        return;
       }
       if (active) {
         dispatch(time());
       }
     }, 1000);
     return () => clearInterval(intervalId);
-  }, [active])
+  }, [active, remainingTime])
 
   return (
     <TimeContext.Provider value={active}>
@@ -41,7 +43,11 @@ function App() {
         }
       </div>
       <div>
-        <Mole onClick={() => dispatch(increment())} />
+        <Mole onClick={() => {
+          if (active) {
+            dispatch(increment())
+          }
+          }} />
       </div>
     </TimeContext.Provider>
   )
